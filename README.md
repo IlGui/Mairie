@@ -14,3 +14,13 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+Ce projet a été réalisé avec le framework laravel et l'api REST
+
+Pour l'exécuter:
+- Placez vous dans votre dossier laravel;
+- Installez et mettez à jour "Composer";
+- Créez la base de données dans phpmyadmin et exécutez "php artisan migrate" pour alimenter la base;
+- ensuite exécutez "php artisan serev" pour lancer le serveur;
+- Puis lancez flutter.
