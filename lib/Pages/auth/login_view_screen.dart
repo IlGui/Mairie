@@ -146,7 +146,7 @@ class _LoginPageState extends State<LoginPage> {
     final registerLabel = FlatButton(
       child: Text(
         'Créer un compte ?',
-        style: TextStyle(color: Colors.white, fontSize: 22),
+        style: TextStyle(color: Colors.yellow, fontSize: 30),
       ),
       onPressed: () {
         Navigator.of(context)
@@ -164,7 +164,7 @@ class _LoginPageState extends State<LoginPage> {
             padding: EdgeInsets.only(left: 24.0, right: 24.0),
             children: <Widget>[
               logo,
-              SizedBox(height: 48.0),
+              SizedBox(height: 44.0),
               phone,
               SizedBox(height: 8.0),
               password,

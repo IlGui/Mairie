@@ -21,6 +21,7 @@ Ce projet a été réalisé avec le framework laravel et l'api REST
 Pour l'exécuter:
 - Placez vous dans votre dossier laravel;
 - Installez et mettez à jour "Composer";
-- Créez la base de données dans phpmyadmin et exécutez "php artisan migrate" pour alimenter la base;
-- ensuite exécutez "php artisan serev" pour lancer le serveur;
+- Créez la base de données "db_mairie" dans phpmyadmin,
+- placez vous dans "Mairie/mairie_app/api/api_ogii" et exécutez "php artisan migrate"pour alimenter la base;
+- ensuite exécutez "php artisan serve" pour lancer le serveur;
 - Puis lancez flutter.
