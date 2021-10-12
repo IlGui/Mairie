@@ -28,5 +28,7 @@ Pour l'exécuter:
 
 * Dans la partie admin, pour validder une demande, il faut changer le statut de la demande en cliquant sur l'icône horloge dans le coin supérieur droit.
 
+* Dans la partie user standard, pour visualiser une demande en pdf, il faut cliquer sur l'icône pdf dans le coin supérieur droit.
+
 
 NB: Pour se connecter avec le compte administrateur, il faut changer manuellement "role_id" à "2" dans la table users dans phpmyadmin. Par defaut chaque utilisateur crée est considéré comme user standard.
