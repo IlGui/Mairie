@@ -1,6 +1,9 @@
 import 'package:bhs/models/acte.dart';
 import 'package:bhs/models/user.dart';
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_pdf/pdf.dart';
+
+import '../../mobile.dart';
 
 class DetailDemandeTraites extends StatefulWidget {
   static String rootName = "/detailsDemandeTraites";
@@ -15,6 +18,74 @@ class DetailDemandeTraites extends StatefulWidget {
 }
 
 class _DetailDemandeTraitesState extends State<DetailDemandeTraites> {
+  Future<void> _createPDF() async {
+    PdfDocument document = PdfDocument();
+
+    PdfGrid grid = PdfGrid();
+    grid.style = PdfGridStyle(
+        font: PdfStandardFont(PdfFontFamily.helvetica, 30),
+        cellPadding: PdfPaddings(left: 5, right: 2, top: 2, bottom: 2));
+    grid.columns.add(count: 2);
+    grid.headers.add(1);
+
+    PdfGridRow header = grid.headers[0];
+
+    header.cells[0].value = 'Acte';
+    header.cells[1].value = 'N* 00' + widget.acte.id.toString();
+
+    PdfGridRow row1 = grid.rows.add();
+
+    row1.cells[0].value = 'Nom';
+    row1.cells[1].value = widget.acte.lastName;
+    PdfGridRow row2 = grid.rows.add();
+
+    row2.cells[0].value = 'Prenom';
+    row2.cells[1].value = widget.acte.firstName;
+    PdfGridRow row3 = grid.rows.add();
+
+    row3.cells[0].value = 'Date de naissance';
+    row3.cells[1].value = widget.acte.dateBorn;
+    PdfGridRow row4 = grid.rows.add();
+
+    row4.cells[0].value = 'Adresse';
+    row4.cells[1].value = widget.acte.address;
+    PdfGridRow row5 = grid.rows.add();
+
+    row5.cells[0].value = 'Nom du Pere';
+    row5.cells[1].value = widget.acte.lastNameFather;
+    PdfGridRow row6 = grid.rows.add();
+
+    row6.cells[0].value = 'Prenom du Pere';
+    row6.cells[1].value = widget.acte.firstNameFather;
+    PdfGridRow row7 = grid.rows.add();
+
+    row7.cells[0].value = 'Profession du Pere';
+    row7.cells[1].value = widget.acte.fatherJob;
+    PdfGridRow row8 = grid.rows.add();
+
+    row8.cells[0].value = 'Nom de la Mere';
+    row8.cells[1].value = widget.acte.lastNameMother;
+    PdfGridRow row9 = grid.rows.add();
+
+    row9.cells[0].value = 'Prenom de la Mere';
+    row9.cells[1].value = widget.acte.firstNameMother;
+    PdfGridRow row10 = grid.rows.add();
+
+    row10.cells[0].value = 'Profession de la mere';
+    row10.cells[1].value = widget.acte.motherJob;
+    PdfGridRow row11 = grid.rows.add();
+
+    row11.cells[0].value = 'Commune';
+    row11.cells[1].value = widget.acte.commune;
+
+    grid.draw(
+        page: document.pages.add(), bounds: const Rect.fromLTWH(0, 0, 0, 0));
+
+    List<int> bytes = document.save();
+    document.dispose();
+    saveAndLaunchFile(bytes, 'acte.pdf');
+  }
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -29,9 +100,7 @@ class _DetailDemandeTraitesState extends State<DetailDemandeTraites> {
                 color: Colors.green,
                 size: 30.8,
               ),
-              onPressed: () {
-                // do something
-              },
+              onPressed: _createPDF,
             )
           ],
           backgroundColor: Colors.black54,
