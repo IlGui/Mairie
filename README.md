@@ -25,3 +25,8 @@ Pour l'exécuter:
 - placez vous dans "Mairie/mairie_app/api/api_ogii" et exécutez "php artisan migrate"pour alimenter la base;
 - ensuite exécutez "php artisan serve" pour lancer le serveur;
 - Puis lancez flutter.
+
+* Dans la partie admin, pour validder une demande, il faut changer le statut de la demande en cliquant sur l'icône horloge dans le coin supérieur droit.
+
+
+NB: Pour se connecter avec le compte administrateur, il faut changer manuellement "role_id" à "2" dans la table users dans phpmyadmin. Par defaut chaque utilisateur crée est considéré comme user standard.
